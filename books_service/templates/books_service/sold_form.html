@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'books_service/header.html' %}
+{% load i18n %}
+<h1>{{ books.name }}</h1>
+{% if book.picture %}
+    <p><img height=120px src="{{ books.picture.url }}" ></p>
+{% else %}
+    <p><img height=120px src="/media/static/no_img.jpeg" ></p>
+{% endif %}
+<p><a href="{% url 'author' pk=books.author.id%}">{{ books.author.name }}</a></p>
+<p>{{ book.grade }}</p>
+<p>{{ book.price_in }}</p>
+
+<p><a href="{% url 'publisher' pk=books.publisher.id%}">{{ books.publisher.name }}</a></p>
+<p>{{ books.price_out }}</p>
+<p><label>{% trans "BookBought" %}<input type="date" value="{{ books.bought }}" name="bought" min="2000-01-01" max=2040-01-01" readonly="true"></label></p>
+{% if not book.sold %}
+    <a>{% trans 'SoldBook' %}</a>
+{% else %}
+    <p>{{ books.sold }}</p>
+{%  endif %}
+<p>{{ books.description }}</p>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Update">
+</form></body>
+</html>

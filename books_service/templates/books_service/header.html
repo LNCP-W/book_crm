@@ -1,0 +1,42 @@
+<head>
+  <title>{% block title %}{% endblock %}</title>
+  {% load bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+</head>
+{% load i18n %}
+{% load book_extras%}
+<div class="container-fluid">
+    <ul class="nav  nav-pills bg-info">
+        <li class="nav-item">
+            <a class="nav-link link-light" href="{% url 'existed_books' %}">{%  trans "ExistedBooks" %}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-light" href="{% url 'all_books' %}">{%  trans "AllBooks" %}</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-light" href="{% url 'sold_books' %}">{%  trans "SoldBooks" %}</a>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle link-light" data-bs-toggle="dropdown" href="#">{%  trans "AllAuthors" %}</a>
+        <ul class="dropdown-menu">
+          {% get_authors as authors %}
+          {% for author in authors %}
+             <li><a class="dropdown-item" href="{% url 'author' author.id%}">{{ author.name}}</a></li>
+          {% endfor %}
+        </ul>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle link-light" data-bs-toggle="dropdown" href="#">{%  trans "AllPublishers" %}</a>
+        <ul class="dropdown-menu">
+          {% get_pub as publishers %}
+          {% for pub in publishers %}
+             <li><a class="dropdown-item" href="{% url 'publisher' pub.id%}">{{ pub.name}}</a></li>
+          {% endfor %}
+        </ul>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link link-light" href="{% url 'create_book' %}">+ {%  trans "AddNewBook" %}</a>
+        </li>
+    </ul>
+</div>

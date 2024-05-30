@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'books_service/header.html' %}
+{% load i18n %}
+<h1>{{ books.name }}</h1>
+{% if books.picture %}
+    <p><img height=120px src="{{ books.picture.url }}" ></p>
+{% else %}
+    <p><img height=120px src="/media/static/no_img.jpeg" ></p>
+{% endif %}
+<p><a href="{% url 'author' pk=books.author.id%}">{{ books.author.name }}</a> | <a href="{% url 'publisher' pk=books.publisher.id%}">{{ books.publisher.name }}</a></p>
+<p>{% trans 'Grade' %} {{ books.grade }}</p>
+<p>{% trans 'BoughtPrice' %} {{ books.price_in }}</p>
+<p>{% trans 'SoldPrise' %} {{ books.price_out }}</p>
+<p><label>{% trans "BookBought" %}  <input type="date" value="{{ books.bought.date|date:"Y-m-d"  }}" name="bought" readonly="true"></label></p>
+{% if not books.sold %}
+    <a>{% trans 'SoldBook' %}</a>
+{% else %}
+    <<p><label>{% trans "BookSoldDate" %}  <input type="date" value="{{ books.sold.date|date:"Y-m-d"  }}" name="sold" readonly="true"></label></p>
+
+{%  endif %}
+<p>{{ books.description }}</p>
+</body>
+</html>

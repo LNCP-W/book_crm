@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {%  load i18n %}
+    {% include 'books_service/header.html' %}
+    <table>
+        <tr>
+            <th>{% trans "AuthorLogo" %}</th>
+            <th>{% trans "AuthorName" %}</th>
+        </tr>
+        {% for author in author_list %}
+            <tr>
+                <th><img height=120px src="{{ author.picture.url }}" ></th>
+                <td><a href="{% url 'author' pk=author.id%}">{{ author.name }}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+</body>
+</html>

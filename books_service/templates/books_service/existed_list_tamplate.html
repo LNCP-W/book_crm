@@ -1,0 +1,39 @@
+{% extends 'books_service/base_paginator.html' %}
+
+{%  load i18n %}
+{%  block list %}
+<div class="container-fluid">
+
+
+
+<div class="table-striped">
+
+<table class="table">
+    <tr>
+         <th>{% trans "BookName" %}</th>
+         <th>{% trans "Count" %}</th>
+         <th>{% trans "BookPublisher" %} | {% trans "BookAuthor" %}</th>
+         <th>{% trans "BookPriceIn" %}</th>
+         <th>{% trans "Bought" %}</th>
+         <th>{% trans "SellBook" %}</th>
+
+    </tr>
+    {% for book in books_list %}
+    <tr>
+        <td ><a href="{% url 'book_detail' pk=book.id%}">{{ book.name }}</a></td>
+        <td >{{ book.count }}</td>
+        <td>
+            <a href="{% url 'publisher' pk=book.publisher.id%}">{{ book.publisher.name }}</a> | <a href="{% url 'author' pk=book.author.id%}">{{ book.author.name }} </a>
+        </td>
+        <td>{{ book.price_in }} грн</td>
+        <td>{{ book.bought.date.isoformat }}</td>
+        <td><a href=" {% url 'sold_book' pk=book.id %}">{% trans "SellBook" %}</a></td>
+    </tr>
+{% empty %}
+    <h2>{% trans "NoBooks" %}</h2>
+{% endfor %}
+</table>
+</div>
+</div>
+
+{% endblock %}

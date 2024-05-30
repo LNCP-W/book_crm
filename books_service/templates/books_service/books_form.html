@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{% include 'books_service/header.html' %}
+{% load i18n %}
+ <form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <table>
+        <tr>
+            <td>{% trans "BookName" %}</td>
+            <td>{{ form.name }}</td>
+        </tr>
+
+        <tr>
+            <td>{% trans "Author" %}</td>
+            <td><input type="text" name="author" id="id_author" list="autname">
+                <datalist id="autname">
+                    {% for author in authors %}
+                      <option value={{ author.name }}>
+                    {% endfor %}
+                </datalist>
+            </td>
+        </tr>
+        <tr>
+            <td>{% trans "Publisher" %}</td>
+            <td><input type="text" name="publisher" id="id_publisher" list="pubname">
+                <datalist id="pubname">
+                    {% for pub in publishers %}
+                      <option value={{ pub.name }}>
+                    {% endfor %}
+                </datalist>
+            </td>
+
+        </tr>
+        <tr>
+            <td>{% trans "Picture" %}</td>
+            <td>{{ form.picture }}</td>
+
+        </tr>
+        <tr>
+            <td>{% trans "PriceIn" %}</td>
+            <td>{{ form.price_in }}</td>
+        </tr>
+        <tr>
+            <td>{% trans "Description" %}</td>
+            <td>{{ form.description }}</td>
+        </tr>
+
+    </table>
+    <input type="submit" value="Save" >
+</form>
+</body>
+</html>

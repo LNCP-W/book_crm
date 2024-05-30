@@ -1,0 +1,38 @@
+{% extends 'books_service/base_paginator.html' %}
+{%  block list %}
+
+{%  load i18n %}
+
+<div class="container-fluid">
+
+<div class="table-striped">
+  <table class="table">
+      <tr>
+         <th ><a  href="?ordering=name">{% trans "BookName" %}</a></th>
+         <th ><a  href="?ordering=author">{% trans "BookAuthor" %}</a></th>
+         <th ><a  href="?ordering=publisher">{% trans "BookPublisher" %}</a></th>
+         <th ><a  href="?ordering=grade">{% trans "BookGrade" %}</a></th>
+         <th ><a  href="?ordering=price_in">{% trans "BookPriceIn" %}</a></th>
+         <th ><a  href="?ordering=price_out">{% trans "BookPriceOut" %}</a></th>
+
+    </tr>
+    {% for book in books_list %}
+    <tr>
+        <td ><a href="{% url 'book_detail' pk=book.id%}">{{ book.name }}</a></td>
+        <td><a href="{% url 'author' pk=book.author.id%}">{{ book.author.name }} </a></td>
+        <td><a href="{% url 'publisher' pk=book.publisher.id%}">{{ book.publisher.name }}</a></td>
+        <td >{%  if book.grade %}
+                {% for n in ''|center:book.grade %}
+                    <img height=12px src="/media/static/star.webp" >
+                {% endfor %}</td>
+            {% endif %}
+        <td>{{ book.price_in }}</td>
+        <td>{{ book.price_out }}</td>
+    </tr>
+{% empty %}
+    <h2>{% trans "NoBooks" %}</h2>
+{% endfor %}
+  </table>
+</div>
+</div>
+{% endblock %}

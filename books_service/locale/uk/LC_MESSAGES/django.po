@@ -1,0 +1,120 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-08-11 15:30+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n % 10 == 1 && n % 100 != "
+"11 ? 0 : n % 1 == 0 && n % 10 >= 2 && n % 10 <= 4 && (n % 100 < 12 || n % "
+"100 > 14) ? 1 : n % 1 == 0 && (n % 10 ==0 || (n % 10 >=5 && n % 10 <=9) || "
+"(n % 100 >=11 && n % 100 <=14 )) ? 2: 3);\n"
+
+#: templates/books_service/author_detail.html:22
+msgid "NoBooksYet"
+msgstr "Книги ще не додані"
+
+#: templates/books_service/author_list.html:12
+msgid "AuthorLogo"
+msgstr "Фотот автора"
+
+#: templates/books_service/author_list.html:13
+msgid "AuthorName"
+msgstr "Автор"
+
+#: templates/books_service/books_detail.html:22
+msgid "BookBought"
+msgstr "Куплена"
+
+#: templates/books_service/books_detail.html:24
+msgid "SoldBook"
+msgstr "Продані"
+
+#: templates/books_service/books_form.html:13
+#: templates/books_service/books_list_tamplate.html:4
+msgid "BookName"
+msgstr "Назва"
+
+#: templates/books_service/books_form.html:18
+msgid "Author"
+msgstr "Автор"
+
+#: templates/books_service/books_form.html:28
+msgid "Publisher"
+msgstr "Видавництво"
+
+#: templates/books_service/books_form.html:39
+msgid "Picture"
+msgstr "Обкладинка"
+
+#: templates/books_service/books_form.html:44
+msgid "PriceIn"
+msgstr "Закупочна"
+
+#: templates/books_service/books_form.html:48
+msgid "PriceOut"
+msgstr "Продажна"
+
+#: templates/books_service/books_form.html:52
+msgid "Bought"
+msgstr "Куплена"
+
+#: templates/books_service/books_form.html:56
+msgid "Sold"
+msgstr "Продана"
+
+#: templates/books_service/books_form.html:60
+msgid "Description"
+msgstr "Опис"
+
+#: templates/books_service/books_list.html:16
+#: templates/books_service/header.html:3
+msgid "AllBooks"
+msgstr "Всі книги"
+
+#: templates/books_service/books_list_tamplate.html:5
+msgid "BookAuthor"
+msgstr "Автор"
+
+#: templates/books_service/books_list_tamplate.html:5
+msgid "BookPublisher"
+msgstr "Видавництво"
+
+#: templates/books_service/books_list_tamplate.html:6
+msgid "BookGrade"
+msgstr "Стан"
+
+#: templates/books_service/books_list_tamplate.html:7
+msgid "BookPriceIn"
+msgstr "Закупочна"
+
+#: templates/books_service/books_list_tamplate.html:8
+msgid "BookPriceOut"
+msgstr "Продажна"
+
+#: templates/books_service/books_list_tamplate.html:24
+msgid "NoBooks"
+msgstr "Книги ще не додані"
+
+#: templates/books_service/header.html:2
+msgid "AddNewBook"
+msgstr "Додати книгу"
+
+#: templates/books_service/header.html:4
+msgid "AllAuthors"
+msgstr "Всі автори"
+
+#: templates/books_service/header.html:5
+msgid "AllPublishers"
+msgstr "Всі видавництва"
